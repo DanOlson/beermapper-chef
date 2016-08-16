@@ -12,6 +12,13 @@ This repository contains several directories, and each directory contains a READ
 
 # Tooling
 
+- ChefDK
 - Knife solo
 - Kitchen
 - Berkshelf
+
+# Running Tests
+
+Tests are run via Kitchen
+
+`kitchen [converge|verify|test]`
