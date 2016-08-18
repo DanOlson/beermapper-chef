@@ -14,4 +14,8 @@ describe 'ruby installation' do
   describe file('/usr/local/rvm/rubies/default') do
     it { is_expected.to be_linked_to '/usr/local/rvm/rubies/ruby-2.3.0' }
   end
+
+  describe command('/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby -v') do
+    its(:stdout) { is_expected.to match '2.3.0' }
+  end
 end

@@ -2,10 +2,15 @@ DEPENDENCIES
   apt
   beermapper
     path: site-cookbooks/beermapper
+  beermapper-postgres
+    path: site-cookbooks/beermapper-postgres
   beermapper-rvm
     path: site-cookbooks/beermapper-rvm
   beermapper-users
     path: site-cookbooks/beermapper-users
+  database (~> 5.1.2)
+  locale (~> 1.1.0)
+  postgresql (~> 4.0.6)
   rvm
     git: git://github.com/fnichol/chef-rvm.git
     revision: eddd733694a1d3e0872f5692e8dda93aa2752791
@@ -15,8 +20,13 @@ GRAPH
     compat_resource (>= 12.10)
   beermapper (0.1.0)
     apt (>= 0.0.0)
+    beermapper-postgres (>= 0.0.0)
     beermapper-rvm (>= 0.0.0)
     beermapper-users (>= 0.0.0)
+    locale (>= 0.0.0)
+  beermapper-postgres (0.1.0)
+    database (>= 0.0.0)
+    postgresql (>= 0.0.0)
   beermapper-rvm (0.1.0)
     rvm (>= 0.0.0)
   beermapper-users (0.1.0)
@@ -24,18 +34,28 @@ GRAPH
     compat_resource (>= 12.10)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
+  chef-sugar (3.4.0)
   chef_gem (0.1.0)
   chef_handler (1.4.0)
   compat_resource (12.10.7)
+  database (5.1.2)
+    postgresql (>= 1.0.0)
   homebrew (2.1.0)
     build-essential (>= 2.1.2)
   java (1.42.0)
     apt (>= 0.0.0)
     homebrew (>= 0.0.0)
     windows (>= 0.0.0)
+  locale (1.1.0)
   mingw (1.2.4)
     compat_resource (>= 0.0.0)
     seven_zip (>= 0.0.0)
+  openssl (4.4.0)
+    chef-sugar (>= 3.1.1)
+  postgresql (4.0.6)
+    apt (>= 1.9.0)
+    build-essential (>= 0.0.0)
+    openssl (~> 4.0)
   rvm (0.10.1)
     chef_gem (>= 0.0.0)
     java (>= 0.0.0)

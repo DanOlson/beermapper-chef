@@ -13,3 +13,11 @@ suites:
     run_list:
       - beermapper
     attributes:
+      rvm:
+        group_users:
+          - root
+          - deploy
+      beermapper-postgres:
+        database_user:
+          username: root
+          password: password
