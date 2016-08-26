@@ -1,0 +1,25 @@
+server {
+  listen 80;
+  server_name beermapper-api.com;
+  access_log logs/beermapper.access.log;
+
+  root /var/apps/beermapper/current/public;
+  passenger_enabled on;
+  rails_env production;
+  charset utf-8;
+}
+
+server {
+  listen 80;
+  server_name beermapper.com;
+  root /var/apps/beermapper/current/ember/dist;
+
+  location /api/v1/ {
+    proxy_pass http://beermapper-api.com;
+  }
+}
+server {
+  listen 80;
+  server_name www.beermapper.com;
+  rewrite ^(.*)$ $scheme://beermapper.com$1;
+}

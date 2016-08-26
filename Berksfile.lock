@@ -2,6 +2,8 @@ DEPENDENCIES
   apt
   beermapper
     path: site-cookbooks/beermapper
+  beermapper-nginx
+    path: site-cookbooks/beermapper-nginx
   beermapper-postgres
     path: site-cookbooks/beermapper-postgres
   beermapper-rvm
@@ -20,10 +22,12 @@ GRAPH
     compat_resource (>= 12.10)
   beermapper (0.1.0)
     apt (>= 0.0.0)
+    beermapper-nginx (>= 0.0.0)
     beermapper-postgres (>= 0.0.0)
     beermapper-rvm (>= 0.0.0)
     beermapper-users (>= 0.0.0)
     locale (>= 0.0.0)
+  beermapper-nginx (0.1.0)
   beermapper-postgres (0.1.0)
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
