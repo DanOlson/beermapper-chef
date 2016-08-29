@@ -18,4 +18,8 @@ describe 'ruby installation' do
   describe command('/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby -v') do
     its(:stdout) { is_expected.to match '2.3.0' }
   end
+
+  describe file('/usr/local/rvm/gems/ruby-2.3.0/bin/bundle') do
+    it { is_expected.to exist }
+  end
 end

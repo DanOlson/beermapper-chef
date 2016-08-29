@@ -1,6 +1,6 @@
 name             'beermapper'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Dan Olson'
+maintainer_email 'olson_dan@yahoo.com'
 license          'All rights reserved'
 description      'Installs/Configures beermapper'
 version          '0.1.0'

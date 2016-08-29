@@ -12,3 +12,7 @@ end
 include_recipe 'rvm::system'
 
 rvm_default_ruby 'ruby-2.3.0'
+
+rvm_gem 'bundler' do
+  version '1.12.5'
+end

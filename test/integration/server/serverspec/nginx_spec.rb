@@ -27,6 +27,8 @@ describe 'nginx installation' do
   describe file('/opt/nginx/conf/beermapper.conf') do
     it { is_expected.to exist }
     it { is_expected.to be_mode 644 }
+    its(:content) { is_expected.to match /rails_env development/ }
+    its(:content) { is_expected.to match /server_name beermapper-dev.com/ }
   end
 
   describe service('nginx') do

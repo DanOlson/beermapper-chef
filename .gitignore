@@ -8,3 +8,4 @@
 .kitchen/
 .kitchen.local.yml
 vendor-cookbooks
+nodes/*

@@ -15,6 +15,13 @@ suites:
     run_list:
       - beermapper
     attributes:
+      beermapper:
+        rails_env: development
+        database:
+          adapter: postgresql
+        app_config:
+          api_key: myrug
+          secret_token: secret
       rvm:
         group_users:
           - root
@@ -23,3 +30,9 @@ suites:
         database_user:
           username: root
           password: password
+        database_name: beermapper_production
+      beermapper-nginx:
+        nginx:
+          beermapper_domain_name: 'beermapper-dev.com'
+        passenger:
+          rails_env: 'development'

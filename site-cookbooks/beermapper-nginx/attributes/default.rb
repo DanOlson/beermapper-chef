@@ -9,6 +9,7 @@ default['beermapper-nginx']['nginx']['worker_processes']      = 2
 default['beermapper-nginx']['nginx']['user']                  = 'www-data'
 default['beermapper-nginx']['nginx']['access_log']            = '/opt/nginx/logs/access.log'
 default['beermapper-nginx']['nginx']['error_log']             = '/opt/nginx/logs/error.log'
+default['beermapper-nginx']['nginx']['beermapper_domain_name'] = 'beermapper.com'
 
 # Passenger
 default['beermapper-nginx']['passenger']['version']               = '5.0.30'
@@ -19,9 +20,7 @@ default['beermapper-nginx']['passenger']['pool_idle_time']        = 300
 default['beermapper-nginx']['passenger']['max_instances_per_app'] = 0
 default['beermapper-nginx']['passenger']['max_requests']          = 0
 default['beermapper-nginx']['passenger']['max_instances_per_app'] = 0
+default['beermapper-nginx']['passenger']['rails_env']             = 'production'
 
 # a list of URLs to pre-start.
 default['beermapper-nginx']['passenger']['pre_start'] = []
-
-# Applications
-default['beermapper-nginx']['apps'] = []

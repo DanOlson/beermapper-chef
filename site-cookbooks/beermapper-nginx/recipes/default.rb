@@ -49,6 +49,10 @@ end
 
 template '/opt/nginx/conf/beermapper.conf' do
   source 'beermapper.conf.erb'
+  variables({
+    beermapper_domain_name: node['beermapper-nginx']['nginx']['beermapper_domain_name'],
+    rails_env: node['beermapper-nginx']['passenger']['rails_env']
+  })
   notifies :restart, 'service[nginx]'
 end
 

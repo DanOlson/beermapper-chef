@@ -20,6 +20,6 @@ template "#{home_dir}/.ssh/authorized_keys" do
   group username
   mode 00644
   variables({
-    authorized_keys: Array(data_bag_item('authorized_keys', 'dan'))
+    authorized_keys: Array(data_bag_item('authorized_keys', 'dan')['key'])
   })
 end

@@ -7,5 +7,5 @@ default['postgresql']['enable_pgdg_apt']      = true
 default['beermapper-postgres']['database_host'] = 'localhost'
 default['beermapper-postgres']['database_port'] = 5432
 default['beermapper-postgres']['database_name'] = 'on_tap_production'
-default['beermapper-postgres']['database_user']['username'] = 'deploy'
-default['beermapper-postgres']['database_user']['password'] = 'deploy'
+default['beermapper-postgres']['database_user']['username'] = ''
+default['beermapper-postgres']['database_user']['password'] = ''
