@@ -24,7 +24,7 @@ suites:
           secret_token: secret
       rvm:
         group_users:
-          - root
+          - vagrant
           - deploy
       beermapper-postgres:
         database_user:
