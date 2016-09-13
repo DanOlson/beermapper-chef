@@ -9,3 +9,4 @@
 .kitchen.local.yml
 vendor-cookbooks
 nodes/*
+.vagrant/
