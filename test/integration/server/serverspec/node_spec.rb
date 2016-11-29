@@ -1,6 +1,6 @@
 describe 'node installation' do
   describe command('node -v') do
-    its(:stdout) { is_expected.to match /0\.10\.36/ }
+    its(:stdout) { is_expected.to match /6\.3\.1/ }
   end
 
   describe command('ember -v') do
@@ -8,6 +8,6 @@ describe 'node installation' do
   end
 
   describe command('bower -v') do
-    its(:stdout) { is_expected.to match /1\.7\.9/ }
+    its(:stdout) { is_expected.to match /1\.8\.0/ }
   end
 end
