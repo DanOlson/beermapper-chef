@@ -10,6 +10,7 @@ default['beermapper-nginx']['nginx']['user']                  = 'www-data'
 default['beermapper-nginx']['nginx']['access_log']            = '/opt/nginx/logs/access.log'
 default['beermapper-nginx']['nginx']['error_log']             = '/opt/nginx/logs/error.log'
 default['beermapper-nginx']['nginx']['beermapper_domain_name'] = 'beermapper.com'
+default['beermapper-nginx']['nginx']['beermapper_admin_domain_name'] = 'admin.beermapper.com'
 
 # Passenger
 default['beermapper-nginx']['passenger']['version']               = '5.0.30'

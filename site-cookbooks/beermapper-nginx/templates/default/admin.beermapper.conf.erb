@@ -1,0 +1,16 @@
+server {
+  listen 80;
+  server_name <%= @beermapper_admin_domain_name %>;
+  access_log logs/beermapper.access.log;
+
+  root /var/apps/beermapper/current/public;
+  passenger_enabled on;
+  rails_env <%= @rails_env %>;
+  charset utf-8;
+}
+
+server {
+  listen 80;
+  server_name www.<%= @beermapper_admin_domain_name %>;
+  rewrite ^(.*)$ $scheme://<%= @beermapper_admin_domain_name %>$1;
+}

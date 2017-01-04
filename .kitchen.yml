@@ -33,6 +33,7 @@ suites:
         database_name: beermapper_production
       beermapper-nginx:
         nginx:
-          beermapper_domain_name: 'beermapper-dev.com'
+          beermapper_domain_name: 'dev.beermapper.com'
+          beermapper_admin_domain_name: 'admin.dev.beermapper.com'
         passenger:
           rails_env: 'development'

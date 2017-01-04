@@ -31,8 +31,7 @@ http {
   gzip_min_length  1000;
   gzip_disable     "msie6";
 
-  include /opt/nginx/conf/passenger.conf;
-  include /opt/nginx/conf/beermapper.conf;
+  include /opt/nginx/conf.d/*.conf;
   # Include virtual host configs
   include sites-enabled/*;
 }
