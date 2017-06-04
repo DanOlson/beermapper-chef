@@ -7,7 +7,7 @@ bash 'install Passenger' do
     source #{node['beermapper-nginx']['rvm']['rvm_shell']}
     gem install passenger -v #{node['beermapper-nginx']['passenger']['version']}
   EOF
-  # user 'deploy'
+
   regex = Regexp.escape("passenger (#{node['beermapper-nginx']['passenger']['version']})")
   not_if { `bash -c "source #{node['beermapper-nginx']['rvm']['rvm_shell']} && gem list"`.lines.grep(/^#{regex}/).count > 0 }
 end

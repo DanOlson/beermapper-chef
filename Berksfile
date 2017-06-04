@@ -6,6 +6,7 @@ cookbook 'database',         '~> 5.1.2'
 cookbook 'locale',           '~> 1.1.0'
 cookbook 'poise-javascript', '~> 1.1.0'
 cookbook 'rvm',  github: 'fnichol/chef-rvm'
+cookbook 'certbot',          '~> 0.6.0', github: 'DanOlson/chef-certbot', branch: 'adjust-symlinks-and-cron'
 
 cookbook 'beermapper',          path: 'site-cookbooks/beermapper'
 cookbook 'beermapper-users',    path: 'site-cookbooks/beermapper-users'

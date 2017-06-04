@@ -12,6 +12,10 @@ DEPENDENCIES
     path: site-cookbooks/beermapper-rvm
   beermapper-users
     path: site-cookbooks/beermapper-users
+  certbot
+    git: git://github.com/DanOlson/chef-certbot.git
+    revision: c88c97843a5e8ecc50182ca8c63120ce457a62c2
+    branch: adjust-symlinks-and-cron
   database (~> 5.1.2)
   locale (~> 1.1.0)
   poise-javascript (~> 1.1.0)
@@ -32,6 +36,8 @@ GRAPH
     beermapper-users (>= 0.0.0)
     locale (>= 0.0.0)
   beermapper-nginx (0.1.0)
+    certbot (~> 0.6.0)
+    openssl (>= 0.0.0)
   beermapper-node (0.1.0)
     poise-javascript (~> 1.1.0)
   beermapper-postgres (0.1.0)
@@ -44,6 +50,7 @@ GRAPH
     compat_resource (>= 12.10)
     mingw (>= 1.1)
     seven_zip (>= 0.0.0)
+  certbot (0.6.0)
   chef-sugar (3.4.0)
   chef_gem (0.1.0)
   chef_handler (1.4.0)

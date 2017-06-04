@@ -11,6 +11,13 @@ default['beermapper-nginx']['nginx']['access_log']            = '/opt/nginx/logs
 default['beermapper-nginx']['nginx']['error_log']             = '/opt/nginx/logs/error.log'
 default['beermapper-nginx']['nginx']['beermapper_domain_name'] = 'beermapper.com'
 default['beermapper-nginx']['nginx']['beermapper_admin_domain_name'] = 'admin.beermapper.com'
+default['beermapper-nginx']['nginx']['server_root'] = '/var/apps/beermapper/current/public'
+default['beermapper-nginx']['nginx']['dhparam_file'] = '/etc/ssl/certs/dhparam.pem'
+
+default['beermapper-nginx']['letsencrypt']['enable'] = false
+default['beermapper-nginx']['letsencrypt']['use-acme-staging'] = false
+default['beermapper-nginx']['letsencrypt']['allow-fail'] = false
+default['certbot']['webroot_dir'] = '/var/apps/beermapper/current/public'
 
 # Passenger
 default['beermapper-nginx']['passenger']['version']               = '5.0.30'
