@@ -2,6 +2,8 @@ DEPENDENCIES
   apt
   beermapper
     path: site-cookbooks/beermapper
+  beermapper-firewall
+    path: site-cookbooks/beermapper-firewall
   beermapper-nginx
     path: site-cookbooks/beermapper-nginx
   beermapper-node
@@ -23,18 +25,22 @@ DEPENDENCIES
   rvm
     git: git://github.com/fnichol/chef-rvm.git
     revision: eddd733694a1d3e0872f5692e8dda93aa2752791
+  ufw (~> 3.1.0)
 
 GRAPH
   apt (4.0.1)
     compat_resource (>= 12.10)
   beermapper (0.1.0)
     apt (>= 0.0.0)
+    beermapper-firewall (>= 0.0.0)
     beermapper-nginx (>= 0.0.0)
     beermapper-node (>= 0.0.0)
     beermapper-postgres (>= 0.0.0)
     beermapper-rvm (>= 0.0.0)
     beermapper-users (>= 0.0.0)
     locale (>= 0.0.0)
+  beermapper-firewall (0.1.0)
+    ufw (~> 3.1)
   beermapper-nginx (0.1.0)
     certbot (~> 0.6.0)
     openssl (>= 0.0.0)
@@ -57,6 +63,8 @@ GRAPH
   compat_resource (12.10.7)
   database (5.1.2)
     postgresql (>= 1.0.0)
+  firewall (2.6.2)
+    chef-sugar (>= 0.0.0)
   homebrew (2.1.0)
     build-essential (>= 2.1.2)
   java (1.42.0)
@@ -87,5 +95,7 @@ GRAPH
     java (>= 0.0.0)
   seven_zip (2.0.1)
     windows (>= 1.2.2)
+  ufw (3.1.0)
+    firewall (>= 2.0)
   windows (1.44.1)
     chef_handler (>= 0.0.0)
