@@ -42,6 +42,8 @@ template '/var/apps/beermapper/shared/config/app_config.yml' do
   variables({
     rails_env: node['beermapper']['rails_env'],
     api_key: node['beermapper']['app_config']['api_key'],
-    secret_token: node['beermapper']['app_config']['secret_token']
+    secret_token: node['beermapper']['app_config']['secret_token'],
+    mailgun_api_key: node['beermapper']['app_config']['mailgun_api_key'],
+    mailgun_domain: node['beermapper']['app_config']['mailgun_domain']
   })
 end
