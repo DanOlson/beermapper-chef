@@ -30,3 +30,10 @@ vagrant up
 knife solo bootstrap vagrant@10.10.0.88 -i .vagrant/machines/default/virtualbox/private_key nodes/beermapper-dev.json
 ```
 
+# Cooking production
+
+```
+berks vendor ./vendor-cookbooks
+knife solo cook root@beermapper nodes/beermapper.json
+```
+

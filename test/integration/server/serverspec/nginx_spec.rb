@@ -102,6 +102,18 @@ server {
   rails_env development;
   charset utf-8;
 
+  error_page 404 /404.html;
+  location = /404.html {
+    root /var/apps/beermapper/current/public/404.html;
+    internal;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root /var/apps/beermapper/current/public/500.html;
+    internal;
+  }
+
   location ~ /.well-known/ {
     root /var/apps/beermapper/current/public/admin.dev.beermapper.com;
   }
