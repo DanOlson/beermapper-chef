@@ -8,6 +8,6 @@ describe 'node installation' do
   end
 
   describe command('bower -v') do
-    its(:stdout) { is_expected.to match /1\.8\.0/ }
+    its(:stdout) { is_expected.to match /^1\.8\.\d{1,}$/ }
   end
 end
