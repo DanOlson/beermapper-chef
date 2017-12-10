@@ -3,6 +3,7 @@ gpg_keyserver = node['beermapper-rvm']['gpg_keyserver']
 
 execute 'trust mpapis public key' do
   environment ({"HOME" => "/root", "USER" => "root"})
+  user 'root'
   command "`which gpg2 || which gpg` --keyserver #{gpg_keyserver} --recv-keys #{gpg_key}"
   only_if 'which gpg2 || which gpg'
   not_if { gpg_key.empty? }

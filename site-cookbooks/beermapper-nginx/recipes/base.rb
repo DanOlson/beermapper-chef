@@ -76,6 +76,7 @@ end
 
 # Set up service to run by default
 service 'nginx' do
+  init_command '/etc/init.d/nginx'
   supports status: true, restart: true, reload: true
   action [:enable]
 end

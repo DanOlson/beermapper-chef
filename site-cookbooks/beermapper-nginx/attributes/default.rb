@@ -17,7 +17,6 @@ default['beermapper-nginx']['nginx']['dhparam_file'] = '/etc/ssl/certs/dhparam.p
 default['beermapper-nginx']['letsencrypt']['enable'] = false
 default['beermapper-nginx']['letsencrypt']['use-acme-staging'] = false
 default['beermapper-nginx']['letsencrypt']['allow-fail'] = false
-default['certbot']['webroot_dir'] = '/var/apps/beermapper/current/public'
 
 # Passenger
 default['beermapper-nginx']['passenger']['version']               = '5.0.30'
@@ -32,3 +31,6 @@ default['beermapper-nginx']['passenger']['rails_env']             = 'production'
 
 # a list of URLs to pre-start.
 default['beermapper-nginx']['passenger']['pre_start'] = []
+
+# Certbot
+default['certbot']['executable'] = '/usr/bin/certbot'

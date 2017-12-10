@@ -31,6 +31,21 @@ describe 'nginx installation' do
     it { is_expected.to be_mode 644 }
   end
 
+  describe file('/var/www/letsencrypt') do
+    it { is_expected.to exist }
+    it { is_expected.to be_directory }
+  end
+
+  describe file('/var/www/letsencrypt/dev.beermapper.com') do
+    it { is_expected.to exist }
+    it { is_expected.to be_directory }
+  end
+
+  describe file('/var/www/letsencrypt/admin.dev.beermapper.com') do
+    it { is_expected.to exist }
+    it { is_expected.to be_directory }
+  end
+
   describe file('/opt/nginx/conf.d/beermapper.conf') do
     it { is_expected.to exist }
     it { is_expected.to be_mode 644 }
@@ -50,7 +65,7 @@ server {
   }
 
   location ~ /.well-known/ {
-    root /var/apps/beermapper/current/public/dev.beermapper.com;
+    root /var/www/letsencrypt/dev.beermapper.com;
   }
 
   include /opt/nginx/snippets/ssl-params.conf;
@@ -115,7 +130,7 @@ server {
   }
 
   location ~ /.well-known/ {
-    root /var/apps/beermapper/current/public/admin.dev.beermapper.com;
+    root /var/www/letsencrypt/admin.dev.beermapper.com;
   }
 
   include /opt/nginx/snippets/ssl-params.conf;

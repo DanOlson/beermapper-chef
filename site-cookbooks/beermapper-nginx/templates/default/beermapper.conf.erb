@@ -23,7 +23,7 @@ server {
   }
 
   location ~ /.well-known/ {
-    root <%= @server_root %>/<%= @beermapper_domain_name %>;
+    root <%= @webroot_dir %>/<%= @beermapper_domain_name %>;
   }
 
   include /opt/nginx/snippets/ssl-params.conf;
