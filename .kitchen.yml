@@ -35,7 +35,7 @@ suites:
       beermapper-nginx:
         nginx:
           beermapper_domain_name: 'dev.beermapper.com'
-          beermapper_admin_domain_name: 'admin.dev.beermapper.com'
+          evergreen_admin_domain_name: 'admin.dev.evergreenmenus.com'
         letsencrypt:
           enable: false
           allow-fail: true

@@ -41,7 +41,7 @@ describe 'nginx installation' do
     it { is_expected.to be_directory }
   end
 
-  describe file('/var/www/letsencrypt/admin.dev.beermapper.com') do
+  describe file('/var/www/letsencrypt/admin.dev.evergreenmenus.com') do
     it { is_expected.to exist }
     it { is_expected.to be_directory }
   end
@@ -98,19 +98,19 @@ server {
     its(:content) { is_expected.to include ssl_redirect }
   end
 
-  describe file('/opt/nginx/conf.d/admin.beermapper.conf') do
+  describe file('/opt/nginx/conf.d/admin.evergreenmenus.conf') do
     it { is_expected.to exist }
     it { is_expected.to be_mode 644 }
 
     main_server = <<-EOF
 server {
   listen 443 ssl;
-  server_name admin.dev.beermapper.com;
-  access_log logs/beermapper.access.log;
+  server_name admin.dev.evergreenmenus.com;
+  access_log logs/evergreen.access.log;
 
   ssl on;
-  ssl_certificate /etc/letsencrypt/current/admin.dev.beermapper.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/current/admin.dev.beermapper.com/key.pem;
+  ssl_certificate /etc/letsencrypt/current/admin.dev.evergreenmenus.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/current/admin.dev.evergreenmenus.com/key.pem;
 
   root /var/apps/beermapper/current/public;
   passenger_enabled on;
@@ -130,7 +130,7 @@ server {
   }
 
   location ~ /.well-known/ {
-    root /var/www/letsencrypt/admin.dev.beermapper.com;
+    root /var/www/letsencrypt/admin.dev.evergreenmenus.com;
   }
 
   include /opt/nginx/snippets/ssl-params.conf;
@@ -139,22 +139,22 @@ server {
     redirect_www_via_https = <<-EOF
 server {
   listen 443 ssl;
-  server_name www.admin.dev.beermapper.com;
-  rewrite ^(.*)$ https://admin.dev.beermapper.com$1;
+  server_name www.admin.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://admin.dev.evergreenmenus.com$1;
 }
     EOF
     redirect_http_to_https = <<-EOF
 server {
   listen 80;
-  server_name admin.dev.beermapper.com;
-  rewrite ^(.*)$ https://admin.dev.beermapper.com$1;
+  server_name admin.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://admin.dev.evergreenmenus.com$1;
 }
     EOF
     redirect_www_via_http = <<-EOF
 server {
   listen 80;
-  server_name www.admin.dev.beermapper.com;
-  rewrite ^(.*)$ https://admin.dev.beermapper.com$1;
+  server_name www.admin.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://admin.dev.evergreenmenus.com$1;
 }
     EOF
     its(:content) { is_expected.to include main_server }
@@ -186,14 +186,14 @@ server {
     its(:content) { is_expected.to include 'ssl_dhparam /etc/ssl/certs/dhparam.pem;' }
   end
 
-  describe file('/etc/letsencrypt/current/admin.dev.beermapper.com/fullchain.pem') do
+  describe file('/etc/letsencrypt/current/admin.dev.evergreenmenus.com/fullchain.pem') do
     it { is_expected.to exist }
-    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/admin.dev.beermapper.com/cert.pem' }
+    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/admin.dev.evergreenmenus.com/cert.pem' }
   end
 
-  describe file('/etc/letsencrypt/current/admin.dev.beermapper.com/key.pem') do
+  describe file('/etc/letsencrypt/current/admin.dev.evergreenmenus.com/key.pem') do
     it { is_expected.to exist }
-    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/admin.dev.beermapper.com/key.pem' }
+    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/admin.dev.evergreenmenus.com/key.pem' }
   end
 
   describe file('/etc/letsencrypt/current/dev.beermapper.com/fullchain.pem') do

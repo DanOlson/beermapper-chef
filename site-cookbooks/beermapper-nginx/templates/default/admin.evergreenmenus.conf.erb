@@ -1,0 +1,50 @@
+server {
+  listen 443 ssl;
+  server_name <%= @evergreen_admin_domain_name %>;
+  access_log logs/evergreen.access.log;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/current/<%= @evergreen_admin_domain_name %>/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/current/<%= @evergreen_admin_domain_name %>/key.pem;
+
+  root <%= @server_root %>;
+  passenger_enabled on;
+  rails_env <%= @rails_env %>;
+  charset utf-8;
+
+  error_page 404 /404.html;
+  location = /404.html {
+    root /var/apps/beermapper/current/public/404.html;
+    internal;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root /var/apps/beermapper/current/public/500.html;
+    internal;
+  }
+
+  location ~ /.well-known/ {
+    root <%= @webroot_dir %>/<%= @evergreen_admin_domain_name %>;
+  }
+
+  include /opt/nginx/snippets/ssl-params.conf;
+}
+
+server {
+  listen 443 ssl;
+  server_name www.<%= @evergreen_admin_domain_name %>;
+  rewrite ^(.*)$ https://<%= @evergreen_admin_domain_name %>$1;
+}
+
+server {
+  listen 80;
+  server_name www.<%= @evergreen_admin_domain_name %>;
+  rewrite ^(.*)$ https://<%= @evergreen_admin_domain_name %>$1;
+}
+
+server {
+  listen 80;
+  server_name <%= @evergreen_admin_domain_name %>;
+  rewrite ^(.*)$ https://<%= @evergreen_admin_domain_name %>$1;
+}
