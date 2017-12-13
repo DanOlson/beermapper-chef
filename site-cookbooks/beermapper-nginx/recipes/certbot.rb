@@ -16,7 +16,7 @@ end
 cron "renew letsencrypt certificates" do
   time :daily
   user 'root'
-  command '/usr/bin/certbot renew --deploy-hook "/etc/init.d/nginx reload"'
+  command '/usr/bin/certbot renew --deploy-hook "/bin/systemctl reload nginx"'
   action :create
 end
 

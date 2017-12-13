@@ -74,9 +74,31 @@ directory "/opt/nginx/sites-available" do
   not_if { File.directory? "/opt/nginx/sites-available" }
 end
 
+systemd_unit 'nginx.service' do
+  content <<-EOF
+[Unit]
+Description=A high performance web server and a reverse proxy server
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+  EOF
+
+  action [:create, :enable]
+end
+
 # Set up service to run by default
 service 'nginx' do
-  init_command '/etc/init.d/nginx'
   supports status: true, restart: true, reload: true
   action [:enable]
 end

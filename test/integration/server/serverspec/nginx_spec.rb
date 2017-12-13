@@ -206,6 +206,30 @@ server {
     it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/dev.beermapper.com/key.pem' }
   end
 
+  describe file('/etc/systemd/system/nginx.service') do
+    it { is_expected.to exist }
+    expected = <<-EOF
+[Unit]
+Description=A high performance web server and a reverse proxy server
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+    EOF
+
+    its(:content) { is_expected.to include expected }
+  end
+
   describe service('nginx') do
     it { is_expected.to be_enabled }
   end

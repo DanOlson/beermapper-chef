@@ -5,7 +5,7 @@ worker_processes  <%= @nginx['worker_processes'] %>;
 error_log   <%= @nginx['error_log'] %>;
 <% end %>
 
-pid        logs/nginx.pid;
+pid /var/run/nginx.pid;
 
 events {
   worker_connections  1024;

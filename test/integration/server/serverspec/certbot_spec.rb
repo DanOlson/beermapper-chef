@@ -20,7 +20,7 @@ describe 'cerbot installation' do
   end
 
   describe cron do
-    cron_entry = '@daily /usr/bin/certbot renew --deploy-hook "/etc/init.d/nginx reload"'
+    cron_entry = '@daily /usr/bin/certbot renew --deploy-hook "/bin/systemctl reload nginx"'
     it { is_expected.to have_entry(cron_entry).with_user('root') }
   end
 end
