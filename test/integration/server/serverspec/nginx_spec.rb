@@ -163,6 +163,71 @@ server {
     its(:content) { is_expected.to include redirect_www_via_http }
   end
 
+  describe file('/opt/nginx/conf.d/cdn.evergreenmenus.conf') do
+    it { is_expected.to exist }
+    it { is_expected.to be_mode 644 }
+
+    main_server = <<-EOF
+server {
+  listen 443 ssl;
+  server_name cdn.dev.evergreenmenus.com;
+  access_log logs/evergreen.access.log;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/current/cdn.dev.evergreenmenus.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/current/cdn.dev.evergreenmenus.com/key.pem;
+
+  root /var/apps/beermapper/current/public;
+  passenger_enabled on;
+  rails_env development;
+  charset utf-8;
+
+  error_page 404 /404.html;
+  location = /404.html {
+    root /var/apps/beermapper/current/public/404.html;
+    internal;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root /var/apps/beermapper/current/public/500.html;
+    internal;
+  }
+
+  location ~ /.well-known/ {
+    root /var/www/letsencrypt/cdn.dev.evergreenmenus.com;
+  }
+
+  include /opt/nginx/snippets/ssl-params.conf;
+}
+    EOF
+    redirect_www_via_https = <<-EOF
+server {
+  listen 443 ssl;
+  server_name www.cdn.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://cdn.dev.evergreenmenus.com$1;
+}
+    EOF
+    redirect_http_to_https = <<-EOF
+server {
+  listen 80;
+  server_name cdn.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://cdn.dev.evergreenmenus.com$1;
+}
+    EOF
+    redirect_www_via_http = <<-EOF
+server {
+  listen 80;
+  server_name www.cdn.dev.evergreenmenus.com;
+  rewrite ^(.*)$ https://cdn.dev.evergreenmenus.com$1;
+}
+    EOF
+    its(:content) { is_expected.to include main_server }
+    its(:content) { is_expected.to include redirect_www_via_https }
+    its(:content) { is_expected.to include redirect_http_to_https }
+    its(:content) { is_expected.to include redirect_www_via_http }
+  end
+
   describe file('/etc/ssl/certs/dhparam.pem') do
     it { is_expected.to exist }
   end

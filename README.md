@@ -1,6 +1,6 @@
 # Overview
 
-This is a Chef repo for Beermapper. It uses wrapper cookbooks and cookbook-as-runlist strategies.
+This is a Chef repo for Beermapper and Evergreen Menus. It uses wrapper cookbooks and cookbook-as-runlist strategies.
 
 # Repository Directories
 
