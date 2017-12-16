@@ -241,8 +241,8 @@ server {
     its(:content) { is_expected.to include 'ssl_ecdh_curve secp384r1;' }
     its(:content) { is_expected.to include 'ssl_session_cache shared:SSL:10m;' }
     its(:content) { is_expected.to include 'ssl_session_tickets off;' }
-    its(:content) { is_expected.to include 'ssl_stapling on;' }
-    its(:content) { is_expected.to include 'ssl_stapling_verify on;' }
+    # its(:content) { is_expected.to include 'ssl_stapling on;' }
+    # its(:content) { is_expected.to include 'ssl_stapling_verify on;' }
     its(:content) { is_expected.to include 'resolver 8.8.8.8 8.8.4.4 valid=300s;' }
     its(:content) { is_expected.to include 'resolver_timeout 5s;' }
     its(:content) { is_expected.to include '#add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";' }
