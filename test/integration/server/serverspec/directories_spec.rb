@@ -61,4 +61,8 @@ describe file('/var/apps/beermapper/shared/config/app_config.yml') do
   it 'has configurable secret_token' do
     expect(config['secret_token']).to eq 'secret'
   end
+
+  it 'has configurable web_menu_host' do
+    expect(config['web_menu_host']).to eq 'cdn.dev.evergreenmenus.com'
+  end
 end

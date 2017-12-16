@@ -1,4 +1,3 @@
-
 %w(
   /var/apps
   /var/apps/beermapper
@@ -44,6 +43,7 @@ template '/var/apps/beermapper/shared/config/app_config.yml' do
     api_key: node['beermapper']['app_config']['api_key'],
     secret_token: node['beermapper']['app_config']['secret_token'],
     mailgun_api_key: node['beermapper']['app_config']['mailgun_api_key'],
-    mailgun_domain: node['beermapper']['app_config']['mailgun_domain']
+    mailgun_domain: node['beermapper']['app_config']['mailgun_domain'],
+    web_menu_host: node['beermapper-nginx']['nginx']['evergreen_cdn_domain_name']
   })
 end
