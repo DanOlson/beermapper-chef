@@ -3,6 +3,7 @@ default['postgresql']['server']['packages']   = ['postgresql-9.4']
 default['postgresql']['password']['postgres'] = 'anotsorandompassword'
 default['postgresql']['dir']                  = '/var/lib/postgresql/9.4/main'
 default['postgresql']['enable_pgdg_apt']      = true
+default['postgresql']['pg_gem']['version']    = '0.21.0'
 
 default['beermapper-postgres']['database_host'] = 'localhost'
 default['beermapper-postgres']['database_port'] = 5432

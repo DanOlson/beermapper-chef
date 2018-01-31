@@ -21,7 +21,7 @@ DEPENDENCIES
   database (~> 5.1.2)
   locale (~> 1.1.0)
   poise-javascript (~> 1.1.0)
-  postgresql (~> 4.0.6)
+  postgresql (~> 6.1.1)
   rvm
     git: git://github.com/fnichol/chef-rvm.git
     revision: eddd733694a1d3e0872f5692e8dda93aa2752791
@@ -60,7 +60,7 @@ GRAPH
   chef-sugar (3.4.0)
   chef_gem (0.1.0)
   chef_handler (1.4.0)
-  compat_resource (12.10.7)
+  compat_resource (12.16.3)
   database (5.1.2)
     postgresql (>= 1.0.0)
   firewall (2.6.2)
@@ -86,10 +86,10 @@ GRAPH
   poise-languages (2.0.1)
     poise (~> 2.5)
     poise-archive (~> 1.0)
-  postgresql (4.0.6)
-    apt (>= 1.9.0)
-    build-essential (>= 0.0.0)
-    openssl (~> 4.0)
+  postgresql (6.1.1)
+    build-essential (>= 2.0.0)
+    compat_resource (>= 12.16.3)
+    openssl (>= 4.0)
   rvm (0.10.1)
     chef_gem (>= 0.0.0)
     java (>= 0.0.0)

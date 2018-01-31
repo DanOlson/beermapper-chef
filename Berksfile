@@ -1,7 +1,7 @@
 source "https://api.berkshelf.com"
 
 cookbook 'apt'
-cookbook 'postgresql',       '~> 4.0.6'
+cookbook 'postgresql',       '~> 6.1.1'
 cookbook 'database',         '~> 5.1.2'
 cookbook 'locale',           '~> 1.1.0'
 cookbook 'poise-javascript', '~> 1.1.0'
