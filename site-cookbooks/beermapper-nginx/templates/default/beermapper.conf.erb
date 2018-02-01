@@ -12,7 +12,7 @@ server {
 server {
   listen 443 ssl;
   server_name <%= @beermapper_domain_name %>;
-  root /var/apps/beermapper/current/ember/dist;
+  root /var/apps/beermapper-frontend/current/dist;
 
   ssl on;
   ssl_certificate /etc/letsencrypt/current/<%= @beermapper_domain_name %>/fullchain.pem;

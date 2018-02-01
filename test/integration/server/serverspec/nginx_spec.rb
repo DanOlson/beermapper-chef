@@ -54,7 +54,7 @@ describe 'nginx installation' do
 server {
   listen 443 ssl;
   server_name dev.beermapper.com;
-  root /var/apps/beermapper/current/ember/dist;
+  root /var/apps/beermapper-frontend/current/dist;
 
   ssl on;
   ssl_certificate /etc/letsencrypt/current/dev.beermapper.com/fullchain.pem;
