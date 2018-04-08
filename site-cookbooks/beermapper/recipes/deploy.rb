@@ -44,6 +44,8 @@ template '/var/apps/beermapper/shared/config/app_config.yml' do
     secret_token: node['beermapper']['app_config']['secret_token'],
     mailgun_api_key: node['beermapper']['app_config']['mailgun_api_key'],
     mailgun_domain: node['beermapper']['app_config']['mailgun_domain'],
+    google_client_id: node['beermapper']['app_config']['google_client_id'],
+    google_client_secret: node['beermapper']['app_config']['google_client_secret'],
     web_menu_host: node['beermapper-nginx']['nginx']['evergreen_cdn_domain_name']
   })
 end

@@ -65,4 +65,14 @@ describe file('/var/apps/beermapper/shared/config/app_config.yml') do
   it 'has configurable web_menu_host' do
     expect(config['web_menu_host']).to eq 'cdn.dev.evergreenmenus.com'
   end
+
+  it 'has google client_id' do
+    expect(config).to have_key 'google'
+    expect(config['google']).to have_key 'client_id'
+  end
+
+  it 'has google client_secret' do
+    expect(config).to have_key 'google'
+    expect(config['google']).to have_key 'client_secret'
+  end
 end
