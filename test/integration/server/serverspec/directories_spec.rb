@@ -75,4 +75,14 @@ describe file('/var/apps/beermapper/shared/config/app_config.yml') do
     expect(config).to have_key 'google'
     expect(config['google']).to have_key 'client_secret'
   end
+
+  it 'has facebook client_id' do
+    expect(config).to have_key 'facebook'
+    expect(config['facebook']).to have_key 'client_id'
+  end
+
+  it 'has facebook client_secret' do
+    expect(config).to have_key 'facebook'
+    expect(config['facebook']).to have_key 'client_secret'
+  end
 end
