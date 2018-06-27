@@ -246,7 +246,7 @@ server {
     its(:content) { is_expected.to include 'resolver 8.8.8.8 8.8.4.4 valid=300s;' }
     its(:content) { is_expected.to include 'resolver_timeout 5s;' }
     its(:content) { is_expected.to include '#add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";' }
-    its(:content) { is_expected.to include 'add_header X-Frame-Options SAMEORIGIN;' }
+    its(:content) { is_expected.to include '#add_header X-Frame-Options SAMEORIGIN;' }
     its(:content) { is_expected.to include 'add_header X-Content-Type-Options nosniff;' }
     its(:content) { is_expected.to include 'ssl_dhparam /etc/ssl/certs/dhparam.pem;' }
   end
