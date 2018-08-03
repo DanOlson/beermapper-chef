@@ -85,4 +85,19 @@ describe file('/var/apps/beermapper/shared/config/app_config.yml') do
     expect(config).to have_key 'facebook'
     expect(config['facebook']).to have_key 'client_secret'
   end
+
+  it 'has stripe pub_key' do
+    expect(config).to have_key 'stripe'
+    expect(config['stripe']).to have_key 'pub_key'
+  end
+
+  it 'has stripe api_key' do
+    expect(config).to have_key 'stripe'
+    expect(config['stripe']).to have_key 'api_key'
+  end
+
+  it 'has stripe webook_secret' do
+    expect(config).to have_key 'stripe'
+    expect(config['stripe']).to have_key 'webhook_secret'
+  end
 end

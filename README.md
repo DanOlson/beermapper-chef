@@ -34,6 +34,6 @@ knife solo bootstrap vagrant@10.10.0.88 -i .vagrant/machines/default/virtualbox/
 
 ```
 berks vendor ./vendor-cookbooks
-knife solo cook root@beermapper nodes/beermapper.json
+knife solo cook root@evergreen nodes/beermapper.json
 ```
 

@@ -48,6 +48,9 @@ template '/var/apps/beermapper/shared/config/app_config.yml' do
     google_client_secret: node['beermapper']['app_config']['google_client_secret'],
     facebook_client_id: node['beermapper']['app_config']['facebook_client_id'],
     facebook_client_secret: node['beermapper']['app_config']['facebook_client_secret'],
+    stripe_pub_key: node['beermapper']['app_config']['stripe_pub_key'],
+    stripe_api_key: node['beermapper']['app_config']['stripe_api_key'],
+    stripe_webhook_secret: node['beermapper']['app_config']['stripe_webhook_secret'],
     web_menu_host: node['beermapper-nginx']['nginx']['evergreen_cdn_domain_name']
   })
 end
