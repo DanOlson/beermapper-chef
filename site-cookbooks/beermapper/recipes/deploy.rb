@@ -51,6 +51,8 @@ template '/var/apps/beermapper/shared/config/app_config.yml' do
     stripe_pub_key: node['beermapper']['app_config']['stripe_pub_key'],
     stripe_api_key: node['beermapper']['app_config']['stripe_api_key'],
     stripe_webhook_secret: node['beermapper']['app_config']['stripe_webhook_secret'],
-    web_menu_host: node['beermapper-nginx']['nginx']['evergreen_cdn_domain_name']
+    web_menu_host: node['beermapper-nginx']['nginx']['evergreen_cdn_domain_name'],
+    aws_access_key_id: node['beermapper']['app_config']['aws_access_key_id'],
+    aws_secret_access_key: node['beermapper']['app_config']['aws_secret_access_key']
   })
 end

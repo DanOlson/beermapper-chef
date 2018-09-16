@@ -100,4 +100,14 @@ describe file('/var/apps/beermapper/shared/config/app_config.yml') do
     expect(config).to have_key 'stripe'
     expect(config['stripe']).to have_key 'webhook_secret'
   end
+
+  it 'has aws access_key_id' do
+    expect(config).to have_key 'aws'
+    expect(config['aws']).to have_key 'access_key_id'
+  end
+
+  it 'has aws secret_access_key' do
+    expect(config).to have_key 'aws'
+    expect(config['aws']).to have_key 'secret_access_key'
+  end
 end
