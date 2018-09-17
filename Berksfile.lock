@@ -4,6 +4,8 @@ DEPENDENCIES
     path: site-cookbooks/beermapper
   beermapper-firewall
     path: site-cookbooks/beermapper-firewall
+  beermapper-imagemagick
+    path: site-cookbooks/beermapper-imagemagick
   beermapper-nginx
     path: site-cookbooks/beermapper-nginx
   beermapper-node
@@ -19,6 +21,7 @@ DEPENDENCIES
     revision: c88c97843a5e8ecc50182ca8c63120ce457a62c2
     branch: adjust-symlinks-and-cron
   database (~> 5.1.2)
+  imagemagick (~> 0.2.3)
   locale (~> 1.1.0)
   poise-javascript (~> 1.1.0)
   postgresql (~> 6.1.1)
@@ -33,6 +36,7 @@ GRAPH
   beermapper (0.1.0)
     apt (>= 0.0.0)
     beermapper-firewall (>= 0.0.0)
+    beermapper-imagemagick (>= 0.0.0)
     beermapper-nginx (>= 0.0.0)
     beermapper-node (>= 0.0.0)
     beermapper-postgres (>= 0.0.0)
@@ -41,6 +45,8 @@ GRAPH
     locale (>= 0.0.0)
   beermapper-firewall (0.1.0)
     ufw (~> 3.1)
+  beermapper-imagemagick (0.1.0)
+    imagemagick (>= 0.0.0)
   beermapper-nginx (0.1.0)
     certbot (~> 0.6.0)
     openssl (>= 0.0.0)
@@ -67,6 +73,7 @@ GRAPH
     chef-sugar (>= 0.0.0)
   homebrew (2.1.0)
     build-essential (>= 2.1.2)
+  imagemagick (0.2.3)
   java (1.42.0)
     apt (>= 0.0.0)
     homebrew (>= 0.0.0)
