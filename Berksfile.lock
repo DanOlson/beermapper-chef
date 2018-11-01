@@ -8,8 +8,6 @@ DEPENDENCIES
     path: site-cookbooks/beermapper-imagemagick
   beermapper-nginx
     path: site-cookbooks/beermapper-nginx
-  beermapper-node
-    path: site-cookbooks/beermapper-node
   beermapper-postgres
     path: site-cookbooks/beermapper-postgres
   beermapper-rvm
@@ -23,7 +21,6 @@ DEPENDENCIES
   database (~> 5.1.2)
   imagemagick (~> 0.2.3)
   locale (~> 1.1.0)
-  poise-javascript (~> 1.1.0)
   postgresql (~> 6.1.1)
   rvm
     git: git://github.com/fnichol/chef-rvm.git
@@ -38,7 +35,6 @@ GRAPH
     beermapper-firewall (>= 0.0.0)
     beermapper-imagemagick (>= 0.0.0)
     beermapper-nginx (>= 0.0.0)
-    beermapper-node (>= 0.0.0)
     beermapper-postgres (>= 0.0.0)
     beermapper-rvm (>= 0.0.0)
     beermapper-users (>= 0.0.0)
@@ -50,8 +46,6 @@ GRAPH
   beermapper-nginx (0.1.0)
     certbot (~> 0.6.0)
     openssl (>= 0.0.0)
-  beermapper-node (0.1.0)
-    poise-javascript (~> 1.1.0)
   beermapper-postgres (0.1.0)
     database (>= 0.0.0)
     postgresql (>= 0.0.0)
@@ -84,15 +78,6 @@ GRAPH
     seven_zip (>= 0.0.0)
   openssl (4.4.0)
     chef-sugar (>= 3.1.1)
-  poise (2.7.1)
-  poise-archive (1.3.0)
-    poise (~> 2.6)
-  poise-javascript (1.1.0)
-    poise (~> 2.0)
-    poise-languages (~> 2.0)
-  poise-languages (2.0.1)
-    poise (~> 2.5)
-    poise-archive (~> 1.0)
   postgresql (6.1.1)
     build-essential (>= 2.0.0)
     compat_resource (>= 12.16.3)
