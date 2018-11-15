@@ -1,8 +1,4 @@
 describe 'nginx installation' do
-  describe file('/etc/hosts') do
-    its(:content){ is_expected.to match /127.0.0.1 beermapper-api.com/ }
-  end
-
   describe file('/opt/nginx') do
     it { is_expected.to exist }
     it { is_expected.to be_directory }
@@ -36,66 +32,9 @@ describe 'nginx installation' do
     it { is_expected.to be_directory }
   end
 
-  describe file('/var/www/letsencrypt/dev.beermapper.com') do
-    it { is_expected.to exist }
-    it { is_expected.to be_directory }
-  end
-
   describe file('/var/www/letsencrypt/admin.dev.evergreenmenus.com') do
     it { is_expected.to exist }
     it { is_expected.to be_directory }
-  end
-
-  describe file('/opt/nginx/conf.d/beermapper.conf') do
-    it { is_expected.to exist }
-    it { is_expected.to be_mode 644 }
-
-    main_server = <<-EOF
-server {
-  listen 443 ssl;
-  server_name dev.beermapper.com;
-  root /var/apps/beermapper-frontend/current/dist;
-
-  ssl on;
-  ssl_certificate /etc/letsencrypt/current/dev.beermapper.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/current/dev.beermapper.com/key.pem;
-
-  location /api/v1/ {
-    proxy_pass http://beermapper-api.com;
-  }
-
-  location ~ /.well-known/ {
-    root /var/www/letsencrypt/dev.beermapper.com;
-  }
-
-  include /opt/nginx/snippets/ssl-params.conf;
-}
-    EOF
-
-    proxy_target = <<-EOF
-server {
-  listen 80;
-  server_name beermapper-api.com;
-  access_log logs/beermapper.access.log;
-
-  root /var/apps/beermapper/current/public;
-  passenger_enabled on;
-  rails_env development;
-  charset utf-8;
-}
-    EOF
-
-    ssl_redirect = <<-EOF
-server {
-  listen 80;
-  server_name dev.beermapper.com;
-  rewrite ^(.*)$ https://dev.beermapper.com$1;
-}
-    EOF
-
-    its(:content) { is_expected.to include main_server }
-    its(:content) { is_expected.to include proxy_target }
-    its(:content) { is_expected.to include ssl_redirect }
   end
 
   describe file('/opt/nginx/conf.d/admin.evergreenmenus.conf') do
@@ -259,16 +198,6 @@ server {
   describe file('/etc/letsencrypt/current/admin.dev.evergreenmenus.com/key.pem') do
     it { is_expected.to exist }
     it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/admin.dev.evergreenmenus.com/key.pem' }
-  end
-
-  describe file('/etc/letsencrypt/current/dev.beermapper.com/fullchain.pem') do
-    it { is_expected.to exist }
-    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/dev.beermapper.com/cert.pem' }
-  end
-
-  describe file('/etc/letsencrypt/current/dev.beermapper.com/key.pem') do
-    it { is_expected.to exist }
-    it { is_expected.to be_linked_to '/etc/letsencrypt/self_signed/dev.beermapper.com/key.pem' }
   end
 
   describe file('/etc/systemd/system/nginx.service') do

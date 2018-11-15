@@ -9,7 +9,6 @@ default['beermapper-nginx']['nginx']['worker_processes']      = 2
 default['beermapper-nginx']['nginx']['user']                  = 'www-data'
 default['beermapper-nginx']['nginx']['access_log']            = '/opt/nginx/logs/access.log'
 default['beermapper-nginx']['nginx']['error_log']             = '/opt/nginx/logs/error.log'
-default['beermapper-nginx']['nginx']['beermapper_domain_name'] = 'beermapper.com'
 default['beermapper-nginx']['nginx']['beermapper_admin_domain_name'] = 'admin.evergreenmenus.com'
 default['beermapper-nginx']['nginx']['beermapper_cdn_domain_name'] = 'cdn.evergreenmenus.com'
 default['beermapper-nginx']['nginx']['server_root'] = '/var/apps/beermapper/current/public'
