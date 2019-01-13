@@ -12,8 +12,12 @@ This repository contains several directories, and each directory contains a READ
 
 # Tooling
 
-- ChefDK
+- ChefDK (with chef-client 12.22.5)
+  * I installed ChefDK first, then years later had to upgrade chef-client as below
+  * https://downloads.chef.io/chefdk#mac_os_x
+  * curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.22.5`
 - Knife solo
+  * via Gemfile, or alternatively via chef gem install knife-solo
 - Kitchen
 - Berkshelf
 

@@ -1,6 +1,5 @@
 include_recipe 'postgresql::server'
 include_recipe 'postgresql::ruby'
-include_recipe 'database::postgresql'
 
 connection_info = {
   host:      node['beermapper-postgres']['database_host'],

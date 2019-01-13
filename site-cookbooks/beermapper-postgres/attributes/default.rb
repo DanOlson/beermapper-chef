@@ -1,7 +1,11 @@
-default['postgresql']['version']              = '9.4'
-default['postgresql']['server']['packages']   = ['postgresql-9.4']
+default['postgresql']['version'] = '9.5'
+default['postgresql']['dir'] = '/etc/postgresql/9.5/main'
+default['postgresql']['server']['service_name'] = 'postgresql'
+default['postgresql']['client']['packages'] = ['postgresql-client-9.5', 'libpq-dev']
+default['postgresql']['server']['packages'] = ['postgresql-9.5']
+default['postgresql']['contrib']['packages'] = ['postgresql-contrib-9.5']
 default['postgresql']['password']['postgres'] = 'anotsorandompassword'
-default['postgresql']['dir']                  = '/var/lib/postgresql/9.4/main'
+default['postgresql']['dir']                  = '/var/lib/postgresql/9.5/main'
 default['postgresql']['enable_pgdg_apt']      = true
 default['postgresql']['pg_gem']['version']    = '0.21.0'
 

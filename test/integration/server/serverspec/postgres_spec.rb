@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'postgres installation' do
   describe command('ps -ef | grep postgres') do
-    its(:stdout) { is_expected.to match '/usr/lib/postgresql/9.4/bin/postgres -D /var/lib/postgresql/9.4/main -c config_file=/etc/postgresql/9.4/main/postgresql.conf' }
+    its(:stdout) { is_expected.to match '/usr/lib/postgresql/9.5/bin/postgres -D /var/lib/postgresql/9.5/main -c config_file=/etc/postgresql/9.5/main/postgresql.conf' }
   end
 
   describe command('psql -l beermapper_production') do
